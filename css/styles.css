@@ -49,25 +49,20 @@ pre {
 /******************************************************************************/
 
 .container {
-  height: 300px;
-  width: 600px;
   padding: 20px;
-
-  position: absolute;
 }
 
 .heading {
   padding: 0 4px 0 4px;
   color: #F0F1EE;
   background-color: #1352A2;
-  font-family: "Roboto Mono", Monaco, monospace;
   font-size: 25px;
   line-height: 35px;
   font-weight: normal;
 }
 
-img#portrait {
-  border: 0px;
-  border-radius: 10px;
+img {
+  height: 197px;
+  width: 197px;
 }
 
