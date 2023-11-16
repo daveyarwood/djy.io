@@ -115,25 +115,30 @@
     </h2>
   </div>
 
-  <script src="js/jquery-1.12.3.min.js"></script>
   <script type="text/javascript">
-  function getImgDiv(el) {
-    var selector = $('#img-' + el.dataset.img);
-    return selector.length ? selector : undefined;
-  }
+    const hideElement = element => element.style.display = "none";
+    const showElement = element => element.style.display = "";
 
-  $('a').hover(function(e) {
-    // mouse in
-    var imgDiv = getImgDiv(e.target);
-    if (imgDiv) {
-      $('div.image').hide();
-      imgDiv.show();
-    }
-  }, function(e) {
-    // mouse out
-    $('div.image').hide();
-    $('#img-portrait').show();
-  });
+    const allImages = Array.from(document.getElementsByClassName("image"));
+    const portrait = document.getElementById("img-portrait");
+
+    Array.from(document.getElementsByTagName("a")).forEach(link => {
+      const imgDiv = document.getElementById(
+        `img-${link.getAttribute("data-img")}`
+      );
+
+      if (imgDiv) {
+        link.addEventListener("mouseover", () => {
+          allImages.forEach(hideElement);
+          showElement(imgDiv);
+        });
+
+        link.addEventListener("mouseout", () => {
+          allImages.forEach(hideElement);
+          showElement(portrait);
+        });
+      }
+    });
   </script>
 </body>
 </html>
